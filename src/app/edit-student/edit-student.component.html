@@ -1,0 +1,21 @@
+<h2>Edit:</h2>
+<div>
+    <label>
+      Imię:
+      <input [(ngModel)]="student!.imie" />
+    </label>
+    <label>
+      Nazwisko:
+      <input [(ngModel)]="student!.nazwisko" />
+    </label>
+    <label>
+      Wiek:
+      <input type="number" [(ngModel)]="student!.wiek" />
+    </label>
+    <label>
+        Nowa ocena:
+        <input type="number" [(ngModel)]="newGrade" />
+        <button (click)="addGrade()">Dodaj ocenę</button>
+    </label>
+    <button (click)="save()">Save</button>
+</div>

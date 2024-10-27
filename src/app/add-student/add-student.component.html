@@ -1,0 +1,16 @@
+<div>
+    <h3>Dodaj nowego studenta</h3>
+    <label>
+      Imię:
+      <input [(ngModel)]="imie" />
+    </label>
+    <label>
+      Nazwisko:
+      <input [(ngModel)]="nazwisko" />
+    </label>
+    <label>
+      Wiek:
+      <input type="number" [(ngModel)]="wiek" />
+    </label>
+    <button (click)="addStudent()">Dodaj studenta</button>
+  </div>

@@ -1,0 +1,21 @@
+<p>{{tytul_listy}}</p>
+
+<p>{{ students.length | i18nPlural: allStudents }}</p>
+
+    @for (student of students; track $index) {
+        <ul [class.selected]="selected === $index" 
+        (click)="selectStudent($index)">
+            <li> Imię: {{student._imie}} </li>
+            <li>Nazwisko: {{student._nazwisko}}</li>
+            <li (click)="toggleWiek(student)">Wiek: <span > @if(student._activeWiek==true){ {{ student._wiek }}}</span></li>
+            <li (click)="toggleOcena(student)" >Oceny: 
+                <span> @if(student._activeOceny==true){ @for (ocena of student._oceny; track $index){
+                        @if(ocena == 2){<span class="negative">{{student._oceny[$index]}} </span>}@else{<span>{{student._oceny[$index]}} </span>}
+                }}</span>
+            </li>
+        </ul>
+    }
+@if (selected>-1) {
+<app-edit-student [student]="students[selected]" (saveStudent)="saveStudent()"></app-edit-student>
+}
+<app-add-student (studentAdded)="addStudent($event)"></app-add-student>
